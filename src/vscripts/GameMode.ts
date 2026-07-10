@@ -100,10 +100,11 @@ export class GameMode {
         const unit = EntIndexToHScript(event.entindex) as CDOTA_BaseNPC; // Cast to npc since this is the 'npc_spawned' event
         // Give all real heroes (not illusions) the meepo_earthbind_ts_example spell
         if (unit.IsRealHero()) {
-            if (!unit.HasAbility("meepo_earthbind_ts_example")) {
-                // Add lua ability to the unit
-                unit.AddAbility("meepo_earthbind_ts_example");
-            }
+            unit.AddAbility("typescript_skywrath_mage_arcane_bolt");
+            unit.AddAbility("meepo_earthbind_ts_example");
+
+            // if (!unit.HasAbility("meepo_earthbind_ts_example")) {
+            // }
         }
     }
 }
