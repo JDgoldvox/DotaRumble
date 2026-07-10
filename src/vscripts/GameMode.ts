@@ -18,7 +18,7 @@ export class GameMode {
 
     public static Activate(this: void) {
         // When the addon activates, create a new instance of this GameMode class.
-        GameRules.Addon = new GameMode();
+        GameRules.Addon = new GameMode(); 
     }
 
     constructor() {
@@ -50,8 +50,8 @@ export class GameMode {
     }
 
     private configure(): void {
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 3);
-        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 3);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS,0);
+        GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 8);
 
         GameRules.SetShowcaseTime(0);
         GameRules.SetHeroSelectionTime(heroSelectionTime);
@@ -60,12 +60,12 @@ export class GameMode {
     public OnStateChange(): void {
         const state = GameRules.State_Get();
 
-        // Add 4 bots to lobby in tools
-        if (IsInToolsMode() && state == GameState.CUSTOM_GAME_SETUP) {
-            for (let i = 0; i < 4; i++) {
-                Tutorial.AddBot("npc_dota_hero_lina", "", "", false);
-            }
-        }
+        // // Add 4 bots to lobby in tools
+        // if (IsInToolsMode() && state == GameState.CUSTOM_GAME_SETUP) {
+        //     for (let i = 0; i < 4; i++) {
+        //         Tutorial.AddBot("npc_dota_hero_lina", "", "", false);
+        //     }
+        // }
 
         if (state === GameState.CUSTOM_GAME_SETUP) {
             // Automatically skip setup in tools

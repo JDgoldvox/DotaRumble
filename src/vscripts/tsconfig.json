@@ -7,6 +7,7 @@
         "types": ["@moddota/dota-lua-types/normalized"],
         "plugins": [{ "transform": "@moddota/dota-lua-types/transformer" }],
         "moduleResolution": "node",
+        "ignoreDeprecations": "6.0",
         "strict": true
     },
     "tstl": {

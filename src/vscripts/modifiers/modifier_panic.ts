@@ -23,7 +23,7 @@ export class modifier_panic extends ModifierSpeed {
 
     // Override speed given by Modifier_Speed
     GetModifierMoveSpeed_Absolute(): number {
-        return 540;
+        return 1000;
     }
 
     // Run when modifier instance is created
